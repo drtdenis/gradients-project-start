@@ -2,7 +2,7 @@ import Gradient from "./Gradient"
 
 const GradientsList = (props) => {
 
-let {filter, gradients} = props
+let {filter, setFilter, gradients} = props
   
 if (filter !=="all") {
   gradients = gradients.filter(el=>el.tags.includes(filter))
@@ -16,6 +16,8 @@ if (filter !=="all") {
         colorEnd={el.end} 
         name={el.name} 
         tags={el.tags}
+        filter={filter}
+        setFilter={setFilter}
         />
           
         ))}
