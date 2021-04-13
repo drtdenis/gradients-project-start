@@ -1,12 +1,22 @@
 import Gradient from "./Gradient"
-import {gradients} from "../gradients"
 
-const GradientsList = () => {
+const GradientsList = (props) => {
+
+let {filter, gradients} = props
+  
+if (filter !=="all") {
+  gradients = gradients.filter(el=>el.tags.includes(filter))
+  }
+
   return (
     <ul className="row list-unstyled">
         {gradients.map((el) => (
            
-        <Gradient colorStart ={el.start} colorEnd={el.end} name={el.name} tags={el.tags}/>
+        <Gradient colorStart ={el.start} 
+        colorEnd={el.end} 
+        name={el.name} 
+        tags={el.tags}
+        />
           
         ))}
     </ul>
